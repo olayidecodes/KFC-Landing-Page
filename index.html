@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>KFC Landing Page</title>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <a href="#"><img src="logo.png" alt="Logo"></a>
+            <div class="toggle"></div>
+            <ul class="navigation">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+
+        <div class="container">
+            <div class="text">
+                <h1>Its Finger<br>Lickin <b>Good</b></h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate tempore, consectetur reiciendis quasi illum officiis error animi reprehenderit tempora hic natus, veritatis officia doloribus maiores. Voluptates commodi minima dolor et quo expedita veniam unde nesciunt.</p>
+                <a class="btn">Order Now</a>
+            </div>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="burger_fries.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="burger.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="french_fries.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="fried_chicken.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <ul class="links">
+                <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-instagram"></ion-icon><a></li>
+            </ul>
+            <div class="prevNext">
+                <p>Always Fresh</p>
+                <span class="prev"><ion-icon name="arrow-back"></ion-icon></span>
+                <span class="next"><ion-icon name="arrow-forward"></ion-icon></span>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <script>
+        // Toggle function
+        const menutoggle = document.querySelector('.toggle');
+        const navigation = document.querySelector('.navigation');
+        menutoggle.onclick = function(){
+            menutoggle.classList.toggle('active')
+            navigation.classList.toggle('active')
+        }
+    </script>
+
+    <script>
+        const slide = document.querySelectorAll('.slide');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        i = 0;
+
+        function ActiveSlide(n){
+            for(pic of slide)
+            pic.classList.remove('active');
+            slide[n].classList.add('active');
+        }
+
+        // function for previous button
+        prev.addEventListener('click', function(){
+            if(i == 0){
+                i = slide.length - 1;
+                ActiveSlide(i);
+            }
+            else{
+                i--;
+                ActiveSlide(i)
+            }
+        })
+
+        // function for next button
+        next.addEventListener('click', function(){
+            if(i == slide.length - 1){
+                i = 0;
+                ActiveSlide(i);
+            }
+            else{
+                i++;
+                ActiveSlide(i)
+            }
+        })
+
+    </script>
+
+</body>
+</html>
